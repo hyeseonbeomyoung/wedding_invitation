@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혜선이와 범영이의 결혼식에 초대합니다.</title>
+
+    <meta property="og:title" content="혜선이와 범영이의 결혼식에 초대합니다.">
+    <meta property="og:description" content="2026년 9월 19일 12:30 지타워컨벤션">
+    <meta property="og:image" content="https://hyeseonbeomyoung.github.io/wedding_invitation/assets/images/date/thumbnail.jpeg">
+    <meta property="og:url" content="https://hyeseonbeomyoung.github.io/wedding_invitation/">
+    <meta property="og:site_name" content="모바일 청첩장 보기">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="assets/icon/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NCP_KEY_ID}"></script>
+</head>
+<body>
+    <audio id="bgm" loop>
+        <source src="assets/music/bgm.mp3" type="audio/mpeg">
+    </audio>
+    <button id="bgm-toggle-btn" class="floating-btn">♫</button>
+
+    <div class="container">
+        <div class="main-image-stack">
+            <img src="assets/images/date/main.gif" alt="Main Wedding Image" class="main-image">
+            <div class="main-image-overlay">
+                <div class="date-text">
+                    2026년 9월 19일 토요일<br>오후 12시 30분
+                </div>
+                <div class="location-text">
+                    지타워컨벤션
+                </div>
+            </div>
+        </div>
+
+        <div class="invitation-text-section">
+            <p>
+                <span class="bold">혜</span>성처럼 빛나던 그 순간의 설렘이<br>
+                <span class="bold">선</span>명히 남아 지금의 우리를 만들었죠.<br><br>
+                <span class="bold">범</span>상치 않은 인연이라 느낀 그대<br>
+                <span class="bold">영</span>원히 함께하길 바라는 마음으로
+            </p>
+            <p class="centered-text">
+                귀한 발걸음으로<br>
+                이 시작을 지켜봐주시고<br>
+                축복해주시면 감사하겠습니다.
+            </p>
+        </div>
+
+        <div class="family-info-section">
+            <div class="family-names">
+                <p data-family="bride_parents"></p>
+                <p data-family="groom_parents"></p>
+            </div>
+            <div class="bride-groom-names">
+                <p>의 장녀 <span class="bold large" data-family="bride_name"></span></p>
+                <p>의 장남 <span class="bold large" data-family="groom_name"></span></p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="gallery-section">
+            <div class="image-grid">
+                <!-- Images will be dynamically loaded here by script.js -->
+            </div>
+            <button id="load-more-btn" class="load-more-btn">더보기</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="calendar-section">
+            <div id="d-day-counter"></div>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <h2>2026년 9월</h2>
+                </div>
+                <div class="calendar-body">
+                    <!-- Calendar will be dynamically generated here by script.js -->
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="map-section">
+            <h2>오시는 길</h2>
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="map-content">지도</button>
+                    <button class="tab-button" data-tab="imagemap-content">약도</button>
+                </div>
+                <div class="tab-content active" id="map-content">
+                    <div id="map" style="width:100%;height:400px;"></div>
+                    <div class="map-buttons-container">
+                        <a href="https://map.naver.com/p/entry/place/1090437805" target="_blank" class="map-link-btn">
+                            네이버지도
+                        </a>
+                        <a href="https://kko.kakao.com/Ed_fGWwUoM" target="_blank" class="map-link-btn">
+                            카카오맵
+                        </a>
+                        <a href="tmap://route?goalname=지타워컨벤션&goalx=126.895287&goaly=37.479988" class="map-link-btn">
+                            티맵
+                        </a>
+                    </div>
+                    <div class="shuttle-info">
+                        <strong>&lt;셔틀버스 이용시&gt;</strong>
+                        <ul>
+                            <li>1호선&amp;7호선 <u>가산디지털단지역 5번 출구</u> 나와서 약 20M 직진후 탑승</li>
+                            <li>2호선 <u>구로디지털단지역 4번 출구</u> 나와서 약 100M 직진후 탑승</li>
+                        </ul>
+                        <p class="shuttle-interval">셔틀버스는 15분 간격으로 순환 운행됩니다</p>
+                    </div>
+                </div>
+                <div class="tab-content" id="imagemap-content">
+                    <img src="assets/images/map.png" alt="약도 이미지" style="width:100%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="contact-section">
+            <h2>연락처</h2>
+            <div class="contact-row" data-contact="bride">
+                <div class="contact-group">
+                    <span class="contact-label">신부</span>
+                    <span class="contact-name" data-name></span>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:" class="contact-btn" data-tel><svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                    <a href="sms:" class="contact-btn" data-sms><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+            <div class="contact-row" data-contact="bride_father">
+                <div class="contact-group">
+                    <span class="contact-label">신부측</span>
+                    <span class="contact-name" data-name></span>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:" class="contact-btn" data-tel><svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                    <a href="sms:" class="contact-btn" data-sms><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+            <div class="contact-row" data-contact="bride_mother">
+                <div class="contact-group">
+                    <span class="contact-label">신부측</span>
+                    <span class="contact-name" data-name></span>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:" class="contact-btn" data-tel><svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                    <a href="sms:" class="contact-btn" data-sms><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+            <div class="contact-row" data-contact="groom">
+                <div class="contact-group">
+                    <span class="contact-label">신랑</span>
+                    <span class="contact-name" data-name></span>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:" class="contact-btn" data-tel><svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                    <a href="sms:" class="contact-btn" data-sms><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+            <div class="contact-row" data-contact="groom_father">
+                <div class="contact-group">
+                    <span class="contact-label">신랑측</span>
+                    <span class="contact-name" data-name></span>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:" class="contact-btn" data-tel><svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                    <a href="sms:" class="contact-btn" data-sms><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+            <div class="contact-row" data-contact="groom_mother">
+                <div class="contact-group">
+                    <span class="contact-label">신랑측</span>
+                    <span class="contact-name" data-name></span>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:" class="contact-btn" data-tel><svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                    <a href="sms:" class="contact-btn" data-sms><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="account-section">
+            <h2>마음을 전하실 곳</h2>
+            <div class="account-group">
+                <div class="account-toggle">
+                    <span>신부측 계좌번호</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+                <div class="account-details">
+                    <div class="account-row" data-account="bride">
+                        <div class="account-info">
+                            <span class="account-holder" data-name></span>
+                            <span class="bank" data-bank></span>
+                            <span class="account-number" data-account-number></span>
+                        </div>
+                        <div class="account-actions">
+                            <button class="copy-btn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h8v14z"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="account-row" data-account="bride_father">
+                        <div class="account-info">
+                            <span class="account-holder" data-name></span>
+                            <span class="bank" data-bank></span>
+                            <span class="account-number" data-account-number></span>
+                        </div>
+                        <div class="account-actions">
+                            <button class="copy-btn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h8v14z"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="account-row" data-account="bride_mother">
+                        <div class="account-info">
+                            <span class="account-holder" data-name></span>
+                            <span class="bank" data-bank></span>
+                            <span class="account-number" data-account-number></span>
+                        </div>
+                        <div class="account-actions">
+                            <button class="copy-btn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h8v14z"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="account-group">
+                <div class="account-toggle">
+                    <span>신랑측 계좌번호</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+                <div class="account-details">
+                    <div class="account-row" data-account="groom">
+                        <div class="account-info">
+                            <span class="account-holder" data-name></span>
+                            <span class="bank" data-bank></span>
+                            <span class="account-number" data-account-number></span>
+                        </div>
+                        <div class="account-actions">
+                            <button class="copy-btn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h8v14z"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="account-row" data-account="groom_father">
+                        <div class="account-info">
+                            <span class="account-holder" data-name></span>
+                            <span class="bank" data-bank></span>
+                            <span class="account-number" data-account-number></span>
+                        </div>
+                        <div class="account-actions">
+                            <button class="copy-btn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h8v14z"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="account-row" data-account="groom_mother">
+                        <div class="account-info">
+                            <span class="account-holder" data-name></span>
+                            <span class="bank" data-bank></span>
+                            <span class="account-number" data-account-number></span>
+                        </div>
+                        <div class="account-actions">
+                            <button class="copy-btn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h8v14z"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="share-section">
+            <button id="share-btn" class="share-btn">공유하기</button>
+            <button id="link-copy-btn" class="share-btn">링크 복사하기</button>
+        </div>
+    </div>
+
+    <div id="gallery-overlay" class="hidden">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Gallery Image">
+        <a class="prev-btn">&#10094;</a>
+        <a class="next-btn">&#10095;</a>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-remote-config.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
