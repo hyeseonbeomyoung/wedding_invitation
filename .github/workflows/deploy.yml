@@ -1,0 +1,58 @@
+# GitHub Pages에 배포하기 위한 표준 스타터 워크플로우
+name: Deploy GitHub Pages
+
+on:
+  # main 브랜치에 대한 푸시에 실행됩니다.
+  push:
+    branches: ["main"]
+
+  # Actions 탭에서 수동으로 이 워크플로우를 실행할 수 있도록 허용합니다.
+  workflow_dispatch:
+
+# 워크플로우가 페이지를 배포할 수 있도록 권한을 설정합니다.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포를 허용하지 않도록 설정합니다.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # 빌드 잡
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run build script
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          AUTH_DOMAIN: ${{ secrets.AUTH_DOMAIN }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          STORAGE_BUCKET: ${{ secrets.STORAGE_BUCKET }}
+          MESSAGING_SENDER_ID: ${{ secrets.MESSAGING_SENDER_ID }}
+          APP_ID: ${{ secrets.APP_ID }}
+          MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
+          NCP_KEY_ID: ${{ secrets.NCP_KEY_ID }}
+          KAKAO_JS_KEY: ${{ secrets.KAKAO_JS_KEY }}
+        run: python build.py
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # dist 디렉토리의 내용을 업로드합니다.
+          path: './dist'
+
+  # 배포 잡
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
