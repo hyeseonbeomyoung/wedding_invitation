@@ -1,0 +1,283 @@
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('assets/fonts/MaruBuri-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('assets/fonts/MaruBuri-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('assets/fonts/MaruBuri-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('assets/fonts/MaruBuri-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('assets/fonts/MaruBuri-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+body {
+    font-family: 'MaruBuri', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    font-weight: 200;
+}
+
+.floating-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.main-image-stack {
+    position: relative;
+}
+
+.main-image {
+    width: 100%;
+    display: block;
+}
+
+.main-image-overlay {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.date-text, .location-text {
+    font-size: 18px;
+}
+
+.location-text {
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+.invitation-text-section {
+    padding: 32px 0 10px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.centered-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.large {
+    font-size: 18px;
+}
+
+.family-info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 40px;
+    font-size: 16px;
+}
+
+.family-names {
+    text-align: right;
+    margin-right: 24px;
+}
+
+.bride-groom-names p {
+    margin: 4px 0;
+}
+
+
+.divider {
+    height: 1px;
+    width: 100px;
+    background-color: #eee;
+    margin: 0 auto;
+}
+
+.gallery-section {
+    padding: 40px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.image-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.calendar-section {
+    padding: 32px 0;
+}
+
+#d-day-counter {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff69b4;
+    margin-bottom: 24px;
+}
+
+.calendar-header h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 14px;
+}
+
+.calendar-body div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.wedding-day {
+    color: white;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.wedding-day::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37px;
+    height: 37px;
+    background-color: lightpink;
+    z-index: -1;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.map-section {
+    padding: 40px 0;
+}
+
+/* Overlay */
+#gallery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+#gallery-overlay.hidden {
+    display: none;
+}
+
+.image-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    will-change: transform;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 32px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 16px;
+}
+
+.next-btn {
+    right: 16px;
+}

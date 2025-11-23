@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혜선이와 범영이의 결혼식에 초대합니다.</title>
+
+    <meta property="og:title" content="혜선이와 범영이의 결혼식에 초대합니다.">
+    <meta property="og:description" content="2026년 9월 19일 12:30 지타워컨벤션">
+    <meta property="og:image" content="https://hyeseonbeomyoung.github.io/wedding_invitation/assets/images/date/thumbnail.jpeg">
+    <meta property="og:url" content="https://hyeseonbeomyoung.github.io/wedding_invitation/">
+    <meta property="og:site_name" content="모바일 청첩장 보기">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="assets/icon/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=ikaelbmlzh"></script>
+</head>
+<body>
+    <audio id="bgm" loop>
+        <source src="assets/music/bgm.mp3" type="audio/mpeg">
+    </audio>
+    <button id="bgm-toggle-btn" class="floating-btn">♫</button>
+
+    <div class="container">
+        <div class="main-image-stack">
+            <img src="assets/images/date/main.jpeg" alt="Main Wedding Image" class="main-image">
+            <div class="main-image-overlay">
+                <div class="date-text">
+                    2026년 9월 19일 토요일<br>오후 12시 30분
+                </div>
+                <div class="location-text">
+                    지타워컨벤션
+                </div>
+            </div>
+        </div>
+
+        <div class="invitation-text-section">
+            <p>
+                <span class="bold">혜</span>성처럼 빛나던 그 순간의 설렘이<br>
+                <span class="bold">선</span>명히 남아 지금의 우리를 만들었죠.<br><br>
+                <span class="bold">범</span>상치 않은 인연이라 느낀 그대<br>
+                <span class="bold">영</span>원히 함께하길 바라는 마음으로
+            </p>
+            <p class="centered-text">
+                귀한 발걸음으로<br>
+                이 시작을 지켜봐주시고<br>
+                축복해주시면 감사하겠습니다.
+            </p>
+        </div>
+
+        <div class="family-info-section">
+            <div class="family-names">
+                <p>신문철 · 이미자</p>
+                <p>유홍준 · 남윤애</p>
+            </div>
+            <div class="bride-groom-names">
+                <p>의 장녀 <span class="bold large">신혜선</span></p>
+                <p>의 장남 <span class="bold large">유범영</span></p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="gallery-section">
+            <div class="image-grid">
+                <!-- Images will be dynamically loaded here by script.js -->
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="calendar-section">
+            <div id="d-day-counter"></div>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <h2>2026년 9월</h2>
+                </div>
+                <div class="calendar-body">
+                    <!-- Calendar will be dynamically generated here by script.js -->
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="map-section">
+            <h2>오시는 길</h2>
+            <div id="map" style="width:100%;height:400px;"></div>
+        </div>
+    </div>
+
+    <div id="gallery-overlay" class="hidden">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Gallery Image">
+        <a class="prev-btn">&#10094;</a>
+        <a class="next-btn">&#10095;</a>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
